@@ -1,0 +1,25 @@
+<h1>Virtual Scroll</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-4">
+        <button class="btn btn-success" (click)="goFirst()">Go First</button>
+    </div>
+    <div class="col-md-2 text-right">
+        <input #txRecord type="text" class="form-control">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-info" (click)="goTo(txRecord.value)">Go To</button>
+    </div>
+    <div class="col-md-2 text-right">
+        <button class="btn btn-info" (click)="goLast()">Go Last</button>
+    </div>
+</div>
+<hr>
+
+<cdk-virtual-scroll-viewport class="list-container list-group" itemSize="50">
+    <div class="list-group-item animate__animated animate__jackInTheBox"
+        *cdkVirtualFor="let person of _people; let idx = index; let counter = count;">
+        Item {{person}} - {{idx}} of {{counter}}
+    </div>
+</cdk-virtual-scroll-viewport>
